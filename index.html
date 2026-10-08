@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zhiying Deng | Finance Portfolio</title>
+  <meta name="description" content="Portfolio of Zhiying Deng, Finance major and Mathematics minor at Rutgers University – New Brunswick.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #14213d;
+      --navy-soft: #24345c;
+      --accent: #b8323a;
+      --accent-soft: #f6e9ea;
+      --text: #2b2f3a;
+      --muted: #6b7280;
+      --bg: #fafaf8;
+      --card: #ffffff;
+      --line: #e6e4df;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.65;
+    }
+
+    /* ---------- Navigation ---------- */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(250, 250, 248, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--navy);
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 24px; list-style: none; }
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-soft) 100%);
+      color: #fff;
+    }
+    .hero-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 80px 24px;
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .headshot {
+      width: 240px;
+      height: 300px;
+      object-fit: cover;
+      object-position: center 20%;
+      border-radius: 16px;
+      border: 4px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 600;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+    .hero .title {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #f3c9cc;
+      margin-bottom: 4px;
+    }
+    .hero .school {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.75);
+      margin-bottom: 28px;
+    }
+    .hero-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      display: inline-block;
+      padding: 11px 24px;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.2s, background 0.2s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: #9e2a31; }
+    .btn-outline { border: 1.5px solid rgba(255, 255, 255, 0.5); color: #fff; }
+    .btn-outline:hover { background: rgba(255, 255, 255, 0.1); }
+
+    /* ---------- Sections ---------- */
+    section { padding: 72px 24px; }
+    .container { max-width: 1000px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 32px;
+    }
+
+    /* ---------- Personal Statement ---------- */
+    .statement {
+      background: var(--card);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 12px 12px 0;
+      padding: 32px 36px;
+      font-size: 1.25rem;
+      line-height: 1.7;
+      color: var(--navy);
+      box-shadow: 0 2px 12px rgba(20, 33, 61, 0.05);
+    }
+
+    /* ---------- Skills ---------- */
+    #skills { background: #f2f1ed; }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .skill-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 24px 26px;
+    }
+    .skill-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 14px;
+    }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag {
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.87rem;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 999px;
+    }
+    .tag.navy { background: #e8ebf3; color: var(--navy); }
+
+    /* ---------- Projects ---------- */
+    .projects { display: grid; gap: 24px; }
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 30px 32px;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .project-card:hover {
+      box-shadow: 0 10px 30px rgba(20, 33, 61, 0.08);
+      transform: translateY(-3px);
+    }
+    .project-num {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+    .project-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .project-org {
+      font-size: 0.93rem;
+      font-weight: 500;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+    .project-card p { font-size: 0.98rem; }
+    .project-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+    }
+    .project-meta .tag { font-size: 0.8rem; padding: 4px 12px; }
+
+    /* ---------- Footer ---------- */
+    footer {
+      background: var(--navy);
+      color: rgba(255, 255, 255, 0.7);
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 0.88rem;
+    }
+    footer strong { color: #fff; font-weight: 600; }
+
+    /* ---------- Mobile ---------- */
+    @media (max-width: 760px) {
+      .nav-links { gap: 16px; }
+      .nav-links a { font-size: 0.85rem; }
+      .hero-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 56px 20px;
+        gap: 32px;
+      }
+      .headshot { margin: 0 auto; width: 200px; height: 250px; }
+      .hero h1 { font-size: 2.3rem; }
+      .hero-buttons { justify-content: center; }
+      section { padding: 56px 20px; }
+      h2 { font-size: 1.7rem; }
+      .statement { font-size: 1.08rem; padding: 24px; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .project-card { padding: 24px; }
+    }
+    @media (max-width: 420px) {
+      .logo { font-size: 1rem; }
+      .nav-links { gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#top" class="logo">Zhiying Deng</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <header class="hero" id="top">
+    <div class="hero-inner">
+      <img src="headshot.jpg" alt="Headshot of Zhiying Deng" class="headshot">
+      <div>
+        <h1>Zhiying Deng</h1>
+        <p class="title">Finance Major &nbsp;|&nbsp; Mathematics Minor</p>
+        <p class="school">Rutgers University – New Brunswick</p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">View My Projects</a>
+          <a href="#skills" class="btn btn-outline">My Skills</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== PERSONAL STATEMENT ========== -->
+  <section id="about">
+    <div class="container">
+      <p class="section-label">About Me</p>
+      <h2>Personal Statement</h2>
+      <p class="statement">
+        I'm a senior at Rutgers University, majoring in Finance and minoring in Mathematics, with a strong interest in corporate finance, investment analysis, and financial modeling.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========== SKILLS ========== -->
+  <section id="skills">
+    <div class="container">
+      <p class="section-label">What I Bring</p>
+      <h2>Skills</h2>
+      <div class="skills-grid">
+
+        <div class="skill-card">
+          <h3>Finance &amp; Analysis</h3>
+          <div class="tags">
+            <span class="tag">Financial Modeling</span>
+            <span class="tag">Financial Statement Analysis</span>
+            <span class="tag">Corporate Valuation</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>Programming &amp; Data</h3>
+          <div class="tags">
+            <span class="tag navy">Python</span>
+            <span class="tag navy">SQL</span>
+            <span class="tag navy">Tableau</span>
+            <span class="tag navy">HTML</span>
+            <span class="tag navy">C (Basic)</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>Business Tools</h3>
+          <div class="tags">
+            <span class="tag navy">Microsoft Excel</span>
+            <span class="tag navy">PowerPoint</span>
+            <span class="tag navy">Word</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>Languages</h3>
+          <div class="tags">
+            <span class="tag">Mandarin Chinese (Native)</span>
+            <span class="tag">English (Fluent)</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROJECTS ========== -->
+  <!-- To add a new project: copy one <div class="project-card"> block below and edit the text. -->
+  <section id="projects">
+    <div class="container">
+      <p class="section-label">Experience in Practice</p>
+      <h2>Projects</h2>
+      <div class="projects">
+
+        <div class="project-card">
+          <p class="project-num">PROJECT 01</p>
+          <h3>Pharmaceutical Company Research and Financial Analysis</h3>
+          <p class="project-org">CITIC Bank &nbsp;·&nbsp; Investment Banking Department</p>
+          <p>
+            Conducted research on a pharmaceutical company by collecting financial and industry information from multiple sources. Performed preliminary financial analysis, organized key findings, and prepared a PowerPoint presentation to highlight the company's financial performance, business operations, and industry position.
+          </p>
+          <div class="project-meta">
+            <span class="tag">Financial Analysis</span>
+            <span class="tag">Industry Research</span>
+            <span class="tag navy">PowerPoint</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <p class="project-num">PROJECT 02</p>
+          <h3>Rural Economic Development Research</h3>
+          <p class="project-org">Undergraduate Research Project &nbsp;·&nbsp; Anhui University</p>
+          <p>
+            Participated in a research project examining how big data and digital technologies can support rural economic development in Wuhu, China. Collected and reviewed research materials, conducted field investigations, verified information, and contributed to the final research report and presentation.
+          </p>
+          <div class="project-meta">
+            <span class="tag">Economic Research</span>
+            <span class="tag">Field Investigation</span>
+            <span class="tag navy">Research Report</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <p class="project-num">PROJECT 03</p>
+          <h3>Investment Research and Portfolio Analysis</h3>
+          <p class="project-org">Sinolink Securities &nbsp;·&nbsp; Retail Brokerage Internship</p>
+          <p>
+            Supported investment research by reviewing market trends and conducting preliminary analysis of securities and investment opportunities. Collaborated with investment advisors on portfolio-related research and helped organize financial information to support investment discussions.
+          </p>
+          <div class="project-meta">
+            <span class="tag">Investment Research</span>
+            <span class="tag">Portfolio Analysis</span>
+            <span class="tag navy">Market Analysis</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <p><strong>Zhiying Deng</strong> &nbsp;·&nbsp; Finance &amp; Mathematics &nbsp;·&nbsp; Rutgers University – New Brunswick</p>
+    <p style="margin-top:6px;">&copy; 2026 Zhiying Deng. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
